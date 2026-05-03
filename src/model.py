@@ -37,3 +37,10 @@ def train_model(model, X_train_t, y_train_t, epochs=150, lr=0.001):
             print(f"Epoch {epoch:3d} | Loss: {loss.item():.4f}")
 
     return losses   
+
+def predict(model, X_t, threshold=0.5):
+    model.eval()
+    with torch.no_grad():
+        probs       = model(X_t)
+        predictions = (probs >= threshold).int().squeeze().tolist()
+    return predictions
