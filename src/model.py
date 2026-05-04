@@ -3,10 +3,9 @@ import torch.nn as nn
 
 
 class PurchaseNet(nn.Module):
-    
+
     def __init__(self, input_size):
         super().__init__()
-        
         self.network = nn.Sequential(
             nn.Linear(input_size, 16),
             nn.ReLU(),
@@ -16,8 +15,10 @@ class PurchaseNet(nn.Module):
             nn.Linear(8, 1),
             nn.Sigmoid()
         )
+
     def forward(self, x):
         return self.network(x)
+
 
 def train_model(model, X_train_t, y_train_t, epochs=150, lr=0.001):
     criterion = nn.BCELoss()
@@ -36,7 +37,8 @@ def train_model(model, X_train_t, y_train_t, epochs=150, lr=0.001):
         if epoch % 15 == 0:
             print(f"Epoch {epoch:3d} | Loss: {loss.item():.4f}")
 
-    return losses   
+    return losses
+
 
 def predict(model, X_t, threshold=0.5):
     model.eval()
