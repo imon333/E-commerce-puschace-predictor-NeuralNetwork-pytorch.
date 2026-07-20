@@ -140,4 +140,4 @@ jupyter
 
 ## Author
 
-Inspired from  the AI Engineer for Data Scientists Associate certification (DataCamp). and another project has been done by IMON.
+Inspired from  the AI Engineer for Data Scientists Associate certification (DataCamp)
